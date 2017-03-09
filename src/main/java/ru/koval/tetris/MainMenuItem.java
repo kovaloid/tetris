@@ -1,3 +1,5 @@
+package ru.koval.tetris;
+
 import java.awt.Color;
 
 public class MainMenuItem {

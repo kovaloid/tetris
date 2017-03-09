@@ -1,3 +1,5 @@
+package ru.koval.tetris;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.MemoryImageSource;

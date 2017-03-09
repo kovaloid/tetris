@@ -1,3 +1,5 @@
+package ru.koval.tetris;
+
 import java.awt.event.*;
 import javax.swing.*;
 

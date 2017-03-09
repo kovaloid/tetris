@@ -1,3 +1,5 @@
+package ru.koval.tetris;
+
 import java.io.*;
 
 public class HighScore implements Serializable {

@@ -1,3 +1,5 @@
+package ru.koval.tetris;
+
 import java.awt.event.*;
 
 public class TetrisWindowAdapter extends WindowAdapter {
