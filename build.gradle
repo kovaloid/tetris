@@ -37,6 +37,6 @@ tasks.withType(FindBugs) {
 
 jar {
     manifest {
-        attributes("Main-Class": "Game")
+        attributes("Main-Class": "ru.koval.tetris.Game")
     }
 }
