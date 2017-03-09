@@ -34,3 +34,9 @@ tasks.withType(FindBugs) {
         html.enabled = true
     }
 }
+
+jar {
+    manifest {
+        attributes("Main-Class": "Game")
+    }
+}
