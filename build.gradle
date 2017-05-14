@@ -17,15 +17,11 @@ dependencies {
 findbugs {
     toolVersion = "3.0.1"
     sourceSets = [sourceSets.main]
-    ignoreFailures = true
+    ignoreFailures = true // Allow the build to continue if there are warnings.
     reportsDir = file("$project.buildDir/reports/findbugs")
-    effort = "max" // min, default, max
-    reportLevel = "low" // low, default, high
-    //visitors = ["FindSqlInjection", "SwitchFallthrough"]
-    //omitVisitors = ["FindNonShortCircuit"]
-    //includeFilter = file("$rootProject.projectDir/config/findbugs/includeFilter.xml")
-    //excludeFilter = file("$rootProject.projectDir/config/findbugs/excludeFilter.xml")
-    //excludeBugsFilter = file("$rootProject.projectDir/config/findbugs/excludeBugsFilter.xml")
+    effort = "max" // Find more bugs at the expense of running time and memory consumption.
+    reportLevel = "low" // All bugs are reported.
+    excludeFilter = rootProject.file('config/findbugs_filter.xml')
 }
 
 tasks.withType(FindBugs) {

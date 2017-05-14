@@ -485,8 +485,7 @@ public class Tetris extends JPanel {
         g2.setFont(new Font("Arial", Font.BOLD, 50));
         g2.drawString("About", 170, 110);
         g2.setFont(new Font("Arial", Font.BOLD, 30));
-        g2.drawString("Tetris by Alexey Pajitnov", 72, 200);
-        g2.drawString("Redone by Artem Kovalev", 75, 300);
+        g2.drawString("Tetris by Artem Kovalev", 75, 300);
         g2.drawString("Copyright 2017", 130, 400);
         g2.setFont(new Font("Arial", Font.BOLD, 40));
         g2.setColor(back.getC());
