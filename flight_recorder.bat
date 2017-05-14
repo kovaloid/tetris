@@ -1,0 +1,1 @@
+java -XX:+UnlockCommercialFeatures -XX:+FlightRecorder -XX:StartFlightRecording=name=test,filename=test.jfr,dumponexit=true -jar build/libs/tetris-1.0.jar
