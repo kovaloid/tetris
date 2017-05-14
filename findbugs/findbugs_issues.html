@@ -1,0 +1,833 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>FindBugs Report</title>
+<style type="text/css">
+		.tablerow0 {
+			background: #EEEEEE;
+		}
+
+		.tablerow1 {
+			background: white;
+		}
+
+		.detailrow0 {
+			background: #EEEEEE;
+		}
+
+		.detailrow1 {
+			background: white;
+		}
+
+		.tableheader {
+			background: #b9b9fe;
+			font-size: larger;
+		}
+
+		.tablerow0:hover, .tablerow1:hover {
+			background: #aaffaa;
+		}
+
+		.priority-1 {
+		    color: red;
+		    font-weight: bold;
+		}
+		.priority-2 {
+		    color: orange;
+		    font-weight: bold;
+		}
+		.priority-3 {
+		    color: green;
+		    font-weight: bold;
+		}
+		.priority-4 {
+		    color: blue;
+		    font-weight: bold;
+		}
+		</style>
+<script type="text/javascript">
+			function toggleRow(elid) {
+				if (document.getElementById) {
+					element = document.getElementById(elid);
+					if (element) {
+						if (element.style.display == 'none') {
+							element.style.display = 'block';
+							//window.status = 'Toggle on!';
+						} else {
+							element.style.display = 'none';
+							//window.status = 'Toggle off!';
+						}
+					}
+				}
+			}
+		</script>
+</head>
+<body>
+<h1>
+<a href="http://findbugs.sourceforge.net">FindBugs</a> Report</h1>
+<h2>Project Information</h2>
+<p>Project: 
+		</p>
+<p>FindBugs version: 3.0.1</p>
+<p>Code analyzed:</p>
+<ul>
+<li>C:\Users\803337\Documents\tetris\build\classes\main\ru\koval\tetris\Game.class</li>
+<li>C:\Users\803337\Documents\tetris\build\classes\main\ru\koval\tetris\HighScore.class</li>
+<li>C:\Users\803337\Documents\tetris\build\classes\main\ru\koval\tetris\MainMenuItem.class</li>
+<li>C:\Users\803337\Documents\tetris\build\classes\main\ru\koval\tetris\Piece.class</li>
+<li>C:\Users\803337\Documents\tetris\build\classes\main\ru\koval\tetris\SavedGame.class</li>
+<li>C:\Users\803337\Documents\tetris\build\classes\main\ru\koval\tetris\Tetris.class</li>
+<li>C:\Users\803337\Documents\tetris\build\classes\main\ru\koval\tetris\TetrisKeyAdapter.class</li>
+<li>C:\Users\803337\Documents\tetris\build\classes\main\ru\koval\tetris\TetrisMenuBar.class</li>
+<li>C:\Users\803337\Documents\tetris\build\classes\main\ru\koval\tetris\TetrisMouseListener.class</li>
+<li>C:\Users\803337\Documents\tetris\build\classes\main\ru\koval\tetris\TetrisWindowAdapter.class</li>
+</ul>
+<p>
+<br/>
+<br/>
+</p>
+<h2>Metrics</h2>
+<p>1099 lines of code analyzed,
+	in 10 classes, 
+	in 1 packages.</p>
+<table width="500" cellpadding="5" cellspacing="2">
+<tr class="tableheader">
+<th align="left">Metric</th>
+<th align="right">Total</th>
+<th align="right">Density*</th>
+</tr>
+<tr class="tablerow0">
+<td>High Priority Warnings</td>
+<td align="right"/>
+<td align="right">0.00</td>
+</tr>
+<tr class="tablerow1">
+<td>Medium Priority Warnings</td>
+<td align="right">23</td>
+<td align="right">20.93</td>
+</tr>
+<tr class="tablerow1">
+<td>Low Priority Warnings</td>
+<td align="right">8</td>
+<td align="right">7.28</td>
+</tr>
+<tr class="$totalClass">
+<td>
+<b>Total Warnings</b>
+</td>
+<td align="right">
+<b>31</b>
+</td>
+<td align="right">
+<b>28.21</b>
+</td>
+</tr>
+</table>
+<p>
+<i>(* Defects per Thousand lines of non-commenting source statements)</i>
+</p>
+<p>
+<br/>
+<br/>
+</p>
+<h2>Contents</h2>
+<ul>
+<li>
+<a href="#Warnings_BAD_PRACTICE">Bad practice Warnings</a>
+</li>
+<li>
+<a href="#Warnings_MALICIOUS_CODE">Malicious code vulnerability Warnings</a>
+</li>
+<li>
+<a href="#Warnings_PERFORMANCE">Performance Warnings</a>
+</li>
+<li>
+<a href="#Warnings_STYLE">Dodgy code Warnings</a>
+</li>
+<li>
+<a href="#Details">Details</a>
+</li>
+</ul>
+<h1>Summary</h1>
+<table width="500" cellpadding="5" cellspacing="2">
+<tr class="tableheader">
+<th align="left">Warning Type</th>
+<th align="right">Number</th>
+</tr>
+<tr class="tablerow0">
+<td>
+<a href="#Warnings_BAD_PRACTICE">Bad practice Warnings</a>
+</td>
+<td align="right">9</td>
+</tr>
+<tr class="tablerow1">
+<td>
+<a href="#Warnings_MALICIOUS_CODE">Malicious code vulnerability Warnings</a>
+</td>
+<td align="right">17</td>
+</tr>
+<tr class="tablerow0">
+<td>
+<a href="#Warnings_PERFORMANCE">Performance Warnings</a>
+</td>
+<td align="right">3</td>
+</tr>
+<tr class="tablerow1">
+<td>
+<a href="#Warnings_STYLE">Dodgy code Warnings</a>
+</td>
+<td align="right">2</td>
+</tr>
+<tr class="tablerow0">
+<td>
+<b>Total</b>
+</td>
+<td align="right">
+<b>31</b>
+</td>
+</tr>
+</table>
+<h1>Warnings</h1>
+<p>Click on a warning row to see full context information.</p>
+<h2>
+<a name="Warnings_BAD_PRACTICE">Bad practice Warnings</a>
+</h2>
+<table class="warningtable" width="100%" cellspacing="0">
+<tr class="tableheader">
+<th align="left">Code</th>
+<th align="left">Warning</th>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N65724');">
+<td>
+<span class="priority-2">Eq</span>
+</td>
+<td>ru.koval.tetris.HighScore defines compareTo(HighScore) and uses Object.equals()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N65724" style="display: none;">
+<a href="#EQ_COMPARETO_USE_OBJECT_EQUALS">Bug type EQ_COMPARETO_USE_OBJECT_EQUALS (click for details)</a>
+<br/>In class ru.koval.tetris.HighScore<br/>In method ru.koval.tetris.HighScore.compareTo(HighScore)<br/>At HighScore.java:[line 42]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N65777');">
+<td>
+<span class="priority-2">OS</span>
+</td>
+<td>ru.koval.tetris.HighScore.getHighScores() may fail to close stream</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N65777" style="display: none;">
+<a href="#OS_OPEN_STREAM">Bug type OS_OPEN_STREAM (click for details)</a>
+<br/>In class ru.koval.tetris.HighScore<br/>In method ru.koval.tetris.HighScore.getHighScores()<br/>Need to close java.io.InputStream <br/>At HighScore.java:[line 66]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N65843');">
+<td>
+<span class="priority-3">OS</span>
+</td>
+<td>ru.koval.tetris.HighScore.addHighScore(HighScore) may fail to close stream on exception</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N65843" style="display: none;">
+<a href="#OS_OPEN_STREAM_EXCEPTION_PATH">Bug type OS_OPEN_STREAM_EXCEPTION_PATH (click for details)</a>
+<br/>In class ru.koval.tetris.HighScore<br/>In method ru.koval.tetris.HighScore.addHighScore(HighScore)<br/>Need to close java.io.OutputStream <br/>At HighScore.java:[line 87]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N65909');">
+<td>
+<span class="priority-3">OS</span>
+</td>
+<td>ru.koval.tetris.HighScore.initializeFile() may fail to close stream on exception</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N65909" style="display: none;">
+<a href="#OS_OPEN_STREAM_EXCEPTION_PATH">Bug type OS_OPEN_STREAM_EXCEPTION_PATH (click for details)</a>
+<br/>In class ru.koval.tetris.HighScore<br/>In method ru.koval.tetris.HighScore.initializeFile()<br/>Need to close java.io.OutputStream <br/>At HighScore.java:[line 53]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N67111');">
+<td>
+<span class="priority-2">OS</span>
+</td>
+<td>ru.koval.tetris.SavedGame.readGames() may fail to close stream</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N67111" style="display: none;">
+<a href="#OS_OPEN_STREAM">Bug type OS_OPEN_STREAM (click for details)</a>
+<br/>In class ru.koval.tetris.SavedGame<br/>In method ru.koval.tetris.SavedGame.readGames()<br/>Need to close java.io.InputStream <br/>At SavedGame.java:[line 121]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N67177');">
+<td>
+<span class="priority-3">OS</span>
+</td>
+<td>ru.koval.tetris.SavedGame.saveGames(SavedGame[]) may fail to close stream on exception</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N67177" style="display: none;">
+<a href="#OS_OPEN_STREAM_EXCEPTION_PATH">Bug type OS_OPEN_STREAM_EXCEPTION_PATH (click for details)</a>
+<br/>In class ru.koval.tetris.SavedGame<br/>In method ru.koval.tetris.SavedGame.saveGames(SavedGame[])<br/>Need to close java.io.OutputStream <br/>At SavedGame.java:[line 109]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N67585');">
+<td>
+<span class="priority-3">Se</span>
+</td>
+<td>Class ru.koval.tetris.Tetris defines non-transient non-serializable instance field back</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N67585" style="display: none;">
+<a href="#SE_BAD_FIELD">Bug type SE_BAD_FIELD (click for details)</a>
+<br/>In class ru.koval.tetris.Tetris<br/>Field ru.koval.tetris.Tetris.back<br/>Actual type ru.koval.tetris.MainMenuItem<br/>In Tetris.java</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N67645');">
+<td>
+<span class="priority-3">Se</span>
+</td>
+<td>Class ru.koval.tetris.Tetris defines non-transient non-serializable instance field items</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N67645" style="display: none;">
+<a href="#SE_BAD_FIELD">Bug type SE_BAD_FIELD (click for details)</a>
+<br/>In class ru.koval.tetris.Tetris<br/>Field ru.koval.tetris.Tetris.items<br/>Actual type ru.koval.tetris.MainMenuItem<br/>In Tetris.java</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N65586');">
+<td>
+<span class="priority-3">SW</span>
+</td>
+<td>Call to swing method in ru.koval.tetris.Game.main(String[]) needs to be performed in Swing event thread</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N65586" style="display: none;">
+<a href="#SW_SWING_METHODS_INVOKED_IN_SWING_THREAD">Bug type SW_SWING_METHODS_INVOKED_IN_SWING_THREAD (click for details)</a>
+<br/>In class ru.koval.tetris.Game<br/>In method ru.koval.tetris.Game.main(String[])<br/>At Game.java:[line 21]</p>
+</td>
+</tr>
+</table>
+<h2>
+<a name="Warnings_MALICIOUS_CODE">Malicious code vulnerability Warnings</a>
+</h2>
+<table class="warningtable" width="100%" cellspacing="0">
+<tr class="tableheader">
+<th align="left">Code</th>
+<th align="left">Warning</th>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N66028');">
+<td>
+<span class="priority-2">EI</span>
+</td>
+<td>ru.koval.tetris.Piece.getLine() may expose internal representation by returning Piece.line</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N66028" style="display: none;">
+<a href="#EI_EXPOSE_REP">Bug type EI_EXPOSE_REP (click for details)</a>
+<br/>In class ru.koval.tetris.Piece<br/>In method ru.koval.tetris.Piece.getLine()<br/>Field ru.koval.tetris.Piece.line<br/>At Piece.java:[line 212]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N66096');">
+<td>
+<span class="priority-2">EI</span>
+</td>
+<td>ru.koval.tetris.Piece.getNumBlocks() may expose internal representation by returning Piece.numBlocks</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N66096" style="display: none;">
+<a href="#EI_EXPOSE_REP">Bug type EI_EXPOSE_REP (click for details)</a>
+<br/>In class ru.koval.tetris.Piece<br/>In method ru.koval.tetris.Piece.getNumBlocks()<br/>Field ru.koval.tetris.Piece.numBlocks<br/>At Piece.java:[line 196]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N66164');">
+<td>
+<span class="priority-2">EI</span>
+</td>
+<td>ru.koval.tetris.Piece.getStart() may expose internal representation by returning Piece.start</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N66164" style="display: none;">
+<a href="#EI_EXPOSE_REP">Bug type EI_EXPOSE_REP (click for details)</a>
+<br/>In class ru.koval.tetris.Piece<br/>In method ru.koval.tetris.Piece.getStart()<br/>Field ru.koval.tetris.Piece.start<br/>At Piece.java:[line 204]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N66682');">
+<td>
+<span class="priority-2">EI</span>
+</td>
+<td>ru.koval.tetris.SavedGame.getBlocks() may expose internal representation by returning SavedGame.blocks</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N66682" style="display: none;">
+<a href="#EI_EXPOSE_REP">Bug type EI_EXPOSE_REP (click for details)</a>
+<br/>In class ru.koval.tetris.SavedGame<br/>In method ru.koval.tetris.SavedGame.getBlocks()<br/>Field ru.koval.tetris.SavedGame.blocks<br/>At SavedGame.java:[line 44]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N66750');">
+<td>
+<span class="priority-2">EI</span>
+</td>
+<td>ru.koval.tetris.SavedGame.getDate() may expose internal representation by returning SavedGame.date</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N66750" style="display: none;">
+<a href="#EI_EXPOSE_REP">Bug type EI_EXPOSE_REP (click for details)</a>
+<br/>In class ru.koval.tetris.SavedGame<br/>In method ru.koval.tetris.SavedGame.getDate()<br/>Field ru.koval.tetris.SavedGame.date<br/>At SavedGame.java:[line 80]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N66818');">
+<td>
+<span class="priority-2">EI</span>
+</td>
+<td>ru.koval.tetris.SavedGame.getNextPieces() may expose internal representation by returning SavedGame.nextPieces</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N66818" style="display: none;">
+<a href="#EI_EXPOSE_REP">Bug type EI_EXPOSE_REP (click for details)</a>
+<br/>In class ru.koval.tetris.SavedGame<br/>In method ru.koval.tetris.SavedGame.getNextPieces()<br/>Field ru.koval.tetris.SavedGame.nextPieces<br/>At SavedGame.java:[line 48]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N67449');">
+<td>
+<span class="priority-2">EI</span>
+</td>
+<td>ru.koval.tetris.Tetris.getBlocks() may expose internal representation by returning Tetris.blocks</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N67449" style="display: none;">
+<a href="#EI_EXPOSE_REP">Bug type EI_EXPOSE_REP (click for details)</a>
+<br/>In class ru.koval.tetris.Tetris<br/>In method ru.koval.tetris.Tetris.getBlocks()<br/>Field ru.koval.tetris.Tetris.blocks<br/>At Tetris.java:[line 141]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N67517');">
+<td>
+<span class="priority-2">EI</span>
+</td>
+<td>ru.koval.tetris.Tetris.getSavedGames() may expose internal representation by returning Tetris.savedGames</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N67517" style="display: none;">
+<a href="#EI_EXPOSE_REP">Bug type EI_EXPOSE_REP (click for details)</a>
+<br/>In class ru.koval.tetris.Tetris<br/>In method ru.koval.tetris.Tetris.getSavedGames()<br/>Field ru.koval.tetris.Tetris.savedGames<br/>At Tetris.java:[line 435]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N66232');">
+<td>
+<span class="priority-2">EI2</span>
+</td>
+<td>ru.koval.tetris.Piece.fit(int[], int[], int[]) may expose internal representation by storing an externally mutable object into Piece.line</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N66232" style="display: none;">
+<a href="#EI_EXPOSE_REP2">Bug type EI_EXPOSE_REP2 (click for details)</a>
+<br/>In class ru.koval.tetris.Piece<br/>In method ru.koval.tetris.Piece.fit(int[], int[], int[])<br/>Field ru.koval.tetris.Piece.line<br/>Local variable named l<br/>At Piece.java:[line 187]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N66307');">
+<td>
+<span class="priority-2">EI2</span>
+</td>
+<td>ru.koval.tetris.Piece.fit(int[], int[], int[]) may expose internal representation by storing an externally mutable object into Piece.numBlocks</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N66307" style="display: none;">
+<a href="#EI_EXPOSE_REP2">Bug type EI_EXPOSE_REP2 (click for details)</a>
+<br/>In class ru.koval.tetris.Piece<br/>In method ru.koval.tetris.Piece.fit(int[], int[], int[])<br/>Field ru.koval.tetris.Piece.numBlocks<br/>Local variable named n<br/>At Piece.java:[line 185]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N66382');">
+<td>
+<span class="priority-2">EI2</span>
+</td>
+<td>ru.koval.tetris.Piece.fit(int[], int[], int[]) may expose internal representation by storing an externally mutable object into Piece.start</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N66382" style="display: none;">
+<a href="#EI_EXPOSE_REP2">Bug type EI_EXPOSE_REP2 (click for details)</a>
+<br/>In class ru.koval.tetris.Piece<br/>In method ru.koval.tetris.Piece.fit(int[], int[], int[])<br/>Field ru.koval.tetris.Piece.start<br/>Local variable named s<br/>At Piece.java:[line 186]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N66457');">
+<td>
+<span class="priority-2">EI2</span>
+</td>
+<td>ru.koval.tetris.Piece.setLine(int[]) may expose internal representation by storing an externally mutable object into Piece.line</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N66457" style="display: none;">
+<a href="#EI_EXPOSE_REP2">Bug type EI_EXPOSE_REP2 (click for details)</a>
+<br/>In class ru.koval.tetris.Piece<br/>In method ru.koval.tetris.Piece.setLine(int[])<br/>Field ru.koval.tetris.Piece.line<br/>Local variable named line<br/>At Piece.java:[line 208]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N66532');">
+<td>
+<span class="priority-2">EI2</span>
+</td>
+<td>ru.koval.tetris.Piece.setNumBlocks(int[]) may expose internal representation by storing an externally mutable object into Piece.numBlocks</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N66532" style="display: none;">
+<a href="#EI_EXPOSE_REP2">Bug type EI_EXPOSE_REP2 (click for details)</a>
+<br/>In class ru.koval.tetris.Piece<br/>In method ru.koval.tetris.Piece.setNumBlocks(int[])<br/>Field ru.koval.tetris.Piece.numBlocks<br/>Local variable named numBlocks<br/>At Piece.java:[line 192]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N66607');">
+<td>
+<span class="priority-2">EI2</span>
+</td>
+<td>ru.koval.tetris.Piece.setStart(int[]) may expose internal representation by storing an externally mutable object into Piece.start</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N66607" style="display: none;">
+<a href="#EI_EXPOSE_REP2">Bug type EI_EXPOSE_REP2 (click for details)</a>
+<br/>In class ru.koval.tetris.Piece<br/>In method ru.koval.tetris.Piece.setStart(int[])<br/>Field ru.koval.tetris.Piece.start<br/>Local variable named start<br/>At Piece.java:[line 200]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N66886');">
+<td>
+<span class="priority-2">EI2</span>
+</td>
+<td>new ru.koval.tetris.SavedGame(String, Piece, Color[][], Piece[], int, Piece, boolean, int, int, Date) may expose internal representation by storing an externally mutable object into SavedGame.blocks</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N66886" style="display: none;">
+<a href="#EI_EXPOSE_REP2">Bug type EI_EXPOSE_REP2 (click for details)</a>
+<br/>In class ru.koval.tetris.SavedGame<br/>In method new ru.koval.tetris.SavedGame(String, Piece, Color[][], Piece[], int, Piece, boolean, int, int, Date)<br/>Field ru.koval.tetris.SavedGame.blocks<br/>Local variable named blocks<br/>At SavedGame.java:[line 33]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N66961');">
+<td>
+<span class="priority-2">EI2</span>
+</td>
+<td>new ru.koval.tetris.SavedGame(String, Piece, Color[][], Piece[], int, Piece, boolean, int, int, Date) may expose internal representation by storing an externally mutable object into SavedGame.date</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N66961" style="display: none;">
+<a href="#EI_EXPOSE_REP2">Bug type EI_EXPOSE_REP2 (click for details)</a>
+<br/>In class ru.koval.tetris.SavedGame<br/>In method new ru.koval.tetris.SavedGame(String, Piece, Color[][], Piece[], int, Piece, boolean, int, int, Date)<br/>Field ru.koval.tetris.SavedGame.date<br/>Local variable named date<br/>At SavedGame.java:[line 40]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N67036');">
+<td>
+<span class="priority-2">EI2</span>
+</td>
+<td>new ru.koval.tetris.SavedGame(String, Piece, Color[][], Piece[], int, Piece, boolean, int, int, Date) may expose internal representation by storing an externally mutable object into SavedGame.nextPieces</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N67036" style="display: none;">
+<a href="#EI_EXPOSE_REP2">Bug type EI_EXPOSE_REP2 (click for details)</a>
+<br/>In class ru.koval.tetris.SavedGame<br/>In method new ru.koval.tetris.SavedGame(String, Piece, Color[][], Piece[], int, Piece, boolean, int, int, Date)<br/>Field ru.koval.tetris.SavedGame.nextPieces<br/>Local variable named nextPieces<br/>At SavedGame.java:[line 34]</p>
+</td>
+</tr>
+</table>
+<h2>
+<a name="Warnings_PERFORMANCE">Performance Warnings</a>
+</h2>
+<table class="warningtable" width="100%" cellspacing="0">
+<tr class="tableheader">
+<th align="left">Code</th>
+<th align="left">Warning</th>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N65639');">
+<td>
+<span class="priority-2">Bx</span>
+</td>
+<td>ru.koval.tetris.HighScore.compareTo(HighScore) invokes inefficient new Integer(int) constructor; use Integer.valueOf(int) instead</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N65639" style="display: none;">
+<a href="#DM_NUMBER_CTOR">Bug type DM_NUMBER_CTOR (click for details)</a>
+<br/>In class ru.koval.tetris.HighScore<br/>In method ru.koval.tetris.HighScore.compareTo(HighScore)<br/>Called method new Integer(int)<br/>Should call Integer.valueOf(int) instead<br/>At HighScore.java:[line 42]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N67243');">
+<td>
+<span class="priority-2">Bx</span>
+</td>
+<td>Primitive boxed just to call toString in ru.koval.tetris.Tetris.paintComponent(Graphics)</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N67243" style="display: none;">
+<a href="#DM_BOXED_PRIMITIVE_TOSTRING">Bug type DM_BOXED_PRIMITIVE_TOSTRING (click for details)</a>
+<br/>In class ru.koval.tetris.Tetris<br/>In method ru.koval.tetris.Tetris.paintComponent(Graphics)<br/>Called method Integer.toString()<br/>Should call Integer.toString(int) instead<br/>At Tetris.java:[line 549]<br/>Another occurrence at Tetris.java:[line 551]<br/>Another occurrence at Tetris.java:[line 552]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N67342');">
+<td>
+<span class="priority-2">Bx</span>
+</td>
+<td>ru.koval.tetris.Tetris.paintComponent(Graphics) invokes inefficient new Integer(int) constructor; use Integer.valueOf(int) instead</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N67342" style="display: none;">
+<a href="#DM_NUMBER_CTOR">Bug type DM_NUMBER_CTOR (click for details)</a>
+<br/>In class ru.koval.tetris.Tetris<br/>In method ru.koval.tetris.Tetris.paintComponent(Graphics)<br/>Called method new Integer(int)<br/>Should call Integer.valueOf(int) instead<br/>At Tetris.java:[line 549]<br/>Another occurrence at Tetris.java:[line 551]<br/>Another occurrence at Tetris.java:[line 552]</p>
+</td>
+</tr>
+</table>
+<h2>
+<a name="Warnings_STYLE">Dodgy code Warnings</a>
+</h2>
+<table class="warningtable" width="100%" cellspacing="0">
+<tr class="tableheader">
+<th align="left">Code</th>
+<th align="left">Warning</th>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N65975');">
+<td>
+<span class="priority-3">PZLA</span>
+</td>
+<td>Should ru.koval.tetris.HighScore.getHighScores() return a zero length array rather than null?</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N65975" style="display: none;">
+<a href="#PZLA_PREFER_ZERO_LENGTH_ARRAYS">Bug type PZLA_PREFER_ZERO_LENGTH_ARRAYS (click for details)</a>
+<br/>In class ru.koval.tetris.HighScore<br/>In method ru.koval.tetris.HighScore.getHighScores()<br/>At HighScore.java:[line 72]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N67705');">
+<td>
+<span class="priority-3">RI</span>
+</td>
+<td>Class ru.koval.tetris.TetrisMouseListener implements same interface as superclass</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N67705" style="display: none;">
+<a href="#RI_REDUNDANT_INTERFACES">Bug type RI_REDUNDANT_INTERFACES (click for details)</a>
+<br/>In class ru.koval.tetris.TetrisMouseListener<br/>Interface java.awt.event.MouseMotionListener<br/>At TetrisMouseListener.java:[lines 13-146]</p>
+</td>
+</tr>
+</table>
+<h1>
+<a name="Details">Details</a>
+</h1>
+<h2>
+<a name="DM_BOXED_PRIMITIVE_TOSTRING">DM_BOXED_PRIMITIVE_TOSTRING: Method allocates a boxed primitive just to call toString</a>
+</h2>
+
+  <p>A boxed primitive is allocated just to call toString(). It is more effective to just use the static
+  form of toString which takes the primitive value. So,</p>
+  <table>
+     <tr><th>Replace...</th><th>With this...</th></tr>
+     <tr><td>new Integer(1).toString()</td><td>Integer.toString(1)</td></tr>
+     <tr><td>new Long(1).toString()</td><td>Long.toString(1)</td></tr>
+     <tr><td>new Float(1.0).toString()</td><td>Float.toString(1.0)</td></tr>
+     <tr><td>new Double(1.0).toString()</td><td>Double.toString(1.0)</td></tr>
+     <tr><td>new Byte(1).toString()</td><td>Byte.toString(1)</td></tr>
+     <tr><td>new Short(1).toString()</td><td>Short.toString(1)</td></tr>
+     <tr><td>new Boolean(true).toString()</td><td>Boolean.toString(true)</td></tr>
+  </table>
+
+    
+<h2>
+<a name="DM_NUMBER_CTOR">DM_NUMBER_CTOR: Method invokes inefficient Number constructor; use static valueOf instead</a>
+</h2>
+      
+      <p>
+      Using <code>new Integer(int)</code> is guaranteed to always result in a new object whereas
+      <code>Integer.valueOf(int)</code> allows caching of values to be done by the compiler, class library, or JVM.
+      Using of cached values avoids object allocation and the code will be faster.
+      </p>
+      <p>
+      Values between -128 and 127 are guaranteed to have corresponding cached instances
+      and using <code>valueOf</code> is approximately 3.5 times faster than using constructor.
+      For values outside the constant range the performance of both styles is the same.
+      </p>
+      <p>
+      Unless the class must be compatible with JVMs predating Java 1.5,
+      use either autoboxing or the <code>valueOf()</code> method when creating instances of
+      <code>Long</code>, <code>Integer</code>, <code>Short</code>, <code>Character</code>, and <code>Byte</code>.
+      </p>
+      
+    
+<h2>
+<a name="EI_EXPOSE_REP">EI_EXPOSE_REP: May expose internal representation by returning reference to mutable object</a>
+</h2>
+
+  <p> Returning a reference to a mutable object value stored in one of the object's fields
+  exposes the internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Returning a new copy of the object is better approach in many situations.</p>
+
+    
+<h2>
+<a name="EI_EXPOSE_REP2">EI_EXPOSE_REP2: May expose internal representation by incorporating reference to mutable object</a>
+</h2>
+
+  <p> This code stores a reference to an externally mutable object into the
+  internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Storing a copy of the object is better approach in many situations.</p>
+
+    
+<h2>
+<a name="EQ_COMPARETO_USE_OBJECT_EQUALS">EQ_COMPARETO_USE_OBJECT_EQUALS: Class defines compareTo(...) and uses Object.equals()</a>
+</h2>
+
+  <p> This class defines a <code>compareTo(...)</code> method but inherits its
+  <code>equals()</code> method from <code>java.lang.Object</code>.
+    Generally, the value of compareTo should return zero if and only if
+    equals returns true. If this is violated, weird and unpredictable
+    failures will occur in classes such as PriorityQueue.
+    In Java 5 the PriorityQueue.remove method uses the compareTo method,
+    while in Java 6 it uses the equals method.</p>
+
+<p>From the JavaDoc for the compareTo method in the Comparable interface:
+<blockquote>
+It is strongly recommended, but not strictly required that <code>(x.compareTo(y)==0) == (x.equals(y))</code>.
+Generally speaking, any class that implements the Comparable interface and violates this condition
+should clearly indicate this fact. The recommended language
+is "Note: this class has a natural ordering that is inconsistent with equals."
+</blockquote></p>
+
+    
+<h2>
+<a name="OS_OPEN_STREAM">OS_OPEN_STREAM: Method may fail to close stream</a>
+</h2>
+
+<p> The method creates an IO stream object, does not assign it to any
+fields, pass it to other methods that might close it,
+or return it, and does not appear to close
+the stream on all paths out of the method.&nbsp; This may result in
+a file descriptor leak.&nbsp; It is generally a good
+idea to use a <code>finally</code> block to ensure that streams are
+closed.</p>
+
+    
+<h2>
+<a name="OS_OPEN_STREAM_EXCEPTION_PATH">OS_OPEN_STREAM_EXCEPTION_PATH: Method may fail to close stream on exception</a>
+</h2>
+
+<p> The method creates an IO stream object, does not assign it to any
+fields, pass it to other methods, or return it, and does not appear to close
+it on all possible exception paths out of the method.&nbsp;
+This may result in a file descriptor leak.&nbsp; It is generally a good
+idea to use a <code>finally</code> block to ensure that streams are
+closed.</p>
+
+    
+<h2>
+<a name="PZLA_PREFER_ZERO_LENGTH_ARRAYS">PZLA_PREFER_ZERO_LENGTH_ARRAYS: Consider returning a zero length array rather than null</a>
+</h2>
+
+<p> It is often a better design to
+return a length zero array rather than a null reference to indicate that there
+are no results (i.e., an empty list of results).
+This way, no explicit check for null is needed by clients of the method.</p>
+
+<p>On the other hand, using null to indicate
+"there is no answer to this question" is probably appropriate.
+For example, <code>File.listFiles()</code> returns an empty list
+if given a directory containing no files, and returns null if the file
+is not a directory.</p>
+
+    
+<h2>
+<a name="RI_REDUNDANT_INTERFACES">RI_REDUNDANT_INTERFACES: Class implements same interface as superclass</a>
+</h2>
+   
+    <p>
+    This class declares that it implements an interface that is also implemented by a superclass.
+    This is redundant because once a superclass implements an interface, all subclasses by default also
+    implement this interface. It may point out that the inheritance hierarchy has changed since
+    this class was created, and consideration should be given to the ownership of
+    the interface's implementation.
+    </p>
+    
+     
+<h2>
+<a name="SE_BAD_FIELD">SE_BAD_FIELD: Non-transient non-serializable instance field in serializable class</a>
+</h2>
+
+<p> This Serializable class defines a non-primitive instance field which is neither transient,
+Serializable, or <code>java.lang.Object</code>, and does not appear to implement
+the <code>Externalizable</code> interface or the
+<code>readObject()</code> and <code>writeObject()</code> methods.&nbsp;
+Objects of this class will not be deserialized correctly if a non-Serializable
+object is stored in this field.</p>
+
+    
+<h2>
+<a name="SW_SWING_METHODS_INVOKED_IN_SWING_THREAD">SW_SWING_METHODS_INVOKED_IN_SWING_THREAD: Certain swing methods needs to be invoked in Swing thread</a>
+</h2>
+
+<p>(<a href="http://web.archive.org/web/20090526170426/http://java.sun.com/developer/JDCTechTips/2003/tt1208.html">From JDC Tech Tip</a>): The Swing methods
+show(), setVisible(), and pack() will create the associated peer for the frame.
+With the creation of the peer, the system creates the event dispatch thread.
+This makes things problematic because the event dispatch thread could be notifying
+listeners while pack and validate are still processing. This situation could result in
+two threads going through the Swing component-based GUI -- it's a serious flaw that
+could result in deadlocks or other related threading issues. A pack call causes
+components to be realized. As they are being realized (that is, not necessarily
+visible), they could trigger listener notification on the event dispatch thread.</p>
+
+
+    </body>
+</html>
