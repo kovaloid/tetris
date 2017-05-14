@@ -182,34 +182,34 @@ public class Piece implements Serializable {
     if (t.willWork(spaces, 0, n, s, l)) {
       for (int i = 0; i < s.length; i++)
         s[i] += spaces;
-      numBlocks = n;
-      start = s;
-      line = l;
+      numBlocks = n.clone();
+      start = s.clone();
+      line = l.clone();
     }
   }
 
   public void setNumBlocks(int[] numBlocks) {
-    this.numBlocks = numBlocks;
+    this.numBlocks = numBlocks.clone();
   }
 
   public int[] getNumBlocks() {
-    return numBlocks;
+    return numBlocks.clone();
   }
 
   public void setStart(int[] start) {
-    this.start = start;
+    this.start = start.clone();
   }
 
   public int[] getStart() {
-    return start;
+    return start.clone();
   }
 
   public void setLine(int[] line) {
-    this.line = line;
+    this.line = line.clone();
   }
 
   public int[] getLine() {
-    return line;
+    return line.clone();
   }
 
   public void setColor(Color c) {

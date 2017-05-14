@@ -1,8 +1,10 @@
 package ru.koval.tetris;
 
 import java.awt.Color;
+import java.io.Serializable;
 
-public class MainMenuItem {
+public class MainMenuItem implements Serializable {
+  private static final long serialVersionUID = 1L;
   private String title;
   private int x, y;
   private Color c = Color.white;

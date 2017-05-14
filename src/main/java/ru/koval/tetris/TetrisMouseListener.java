@@ -7,7 +7,7 @@ import java.awt.image.MemoryImageSource;
 //I had to use only one "Adapter" and the other had to be a "Listener" because I can only extend one class 
 //while I can implement any amount of interfaces I want
 //And "Adapters" are classes and "Listeners" are interfaces
-public class TetrisMouseListener extends MouseAdapter implements MouseMotionListener {
+public class TetrisMouseListener extends MouseAdapter {
   private Tetris t;
 
   public TetrisMouseListener(Tetris tet) {
@@ -16,6 +16,7 @@ public class TetrisMouseListener extends MouseAdapter implements MouseMotionList
   }
 
   //Listens for when the mouse is moved
+  @Override
   public void mouseMoved(MouseEvent arg0) {
     int selected = -1;
     //During the game the cursor is hidden when it is over the center area
@@ -97,6 +98,7 @@ public class TetrisMouseListener extends MouseAdapter implements MouseMotionList
   }
 
   //Listens for when the mouse is clicked
+  @Override
   public void mouseClicked(MouseEvent arg0) {
     //Listens for the following few movements only if the user is in the main menu, none of the sub-menus
     if (t.isMenu() && !t.isAbout() && !t.isInstruction() && !t.isHighScore() && !t.isSavedGames()) {
@@ -142,6 +144,7 @@ public class TetrisMouseListener extends MouseAdapter implements MouseMotionList
   }
 
   //A method that is needed because I implemented the MouseMotionListener but does nothing for me
+  @Override
   public void mouseDragged(MouseEvent arg0) {
   }
 }

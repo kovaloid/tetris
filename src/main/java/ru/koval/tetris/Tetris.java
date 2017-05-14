@@ -22,7 +22,9 @@ public class Tetris extends JPanel {
   private MainMenuItem back = new MainMenuItem("Back", 200, 655);
   private SavedGame[] savedGames = SavedGame.readGames();
 
-  public Tetris() {
+  public Tetris(JFrame frame) {
+    //Shows the frame
+    frame.setVisible(true);
     //Initializes the pausedBlocks
     for (int i = 0; i < pausedBlocks.length; i++) {
       Color[] c = new Color[10];
@@ -546,10 +548,10 @@ public class Tetris extends JPanel {
         g2.setFont(new Font("Arial", Font.BOLD, 22));
         for (int i = 0; i < h.length; i++)
           if (h[i].getScore() > 0) {
-            g2.drawString(new Integer(i + 1).toString() + ".", 15, 180 + i * 47);
+            g2.drawString(Integer.toString(i + 1) + ".", 15, 180 + i * 47);
             g2.drawString(h[i].getName(), 50, 180 + i * 47);
-            g2.drawString(new Integer(h[i].getScore()).toString(), 280, 180 + i * 47);
-            g2.drawString(new Integer(h[i].getLevel()).toString(), 420, 180 + i * 47);
+            g2.drawString(Integer.toString(h[i].getScore()), 280, 180 + i * 47);
+            g2.drawString(Integer.toString(h[i].getLevel()), 420, 180 + i * 47);
           }
         g2.setFont(new Font("Arial", Font.BOLD, 40));
         g2.setColor(back.getC());

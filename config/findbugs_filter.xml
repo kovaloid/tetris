@@ -4,15 +4,15 @@
         <Or>
             <!-- no other way to close the program excepting usage of System.exit() -->
             <Bug pattern="DM_EXIT" />
-            <!--Too many false positives -->
+            <!-- too many false positives -->
             <Bug pattern="BC_UNCONFIRMED_CAST" />
-            <!-- Too many false positives -->
+            <!-- too many false positives -->
             <Bug pattern="BC_UNCONFIRMED_CAST_OF_RETURN_VALUE" />
-            <!-- Converting all anonymous classes to static inner classes degrades readability -->
+            <!-- converting all anonymous classes to static inner classes degrades readability -->
             <Bug pattern="SIC_INNER_SHOULD_BE_STATIC_ANON" />
-            <!-- Not relevant due to the use of unittest @Before -->
+            <!-- not relevant due to the use of unit test @Before -->
             <Bug pattern="UWF_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR" />
-            <!-- Too many false positives, depends on external naming conventions -->
+            <!-- too many false positives, depends on external naming conventions -->
             <Bug pattern="NM_CONFUSING" />
             <Bug pattern="RV_RETURN_VALUE_IGNORED_BAD_PRACTICE" />
         </Or>
@@ -21,5 +21,31 @@
     <Match>
         <Bug pattern="SE_TRANSIENT_FIELD_NOT_RESTORED" />
         <Class name="ru.koval.tetris.Piece" />
+    </Match>
+    <!-- findbugs detects the designed behavior as an error -->
+    <Match>
+        <Bug pattern="EI_EXPOSE_REP2" />
+        <Class name="ru.koval.tetris.SavedGame" />
+        <Method name="&lt;init&gt;" />
+    </Match>
+    <Match>
+        <Bug pattern="EI_EXPOSE_REP" />
+        <Class name="ru.koval.tetris.SavedGame" />
+        <Method name="getBlocks" />
+    </Match>
+    <Match>
+        <Bug pattern="EI_EXPOSE_REP" />
+        <Class name="ru.koval.tetris.SavedGame" />
+        <Method name="getNextPieces" />
+    </Match>
+    <Match>
+        <Bug pattern="EI_EXPOSE_REP" />
+        <Class name="ru.koval.tetris.Tetris" />
+        <Method name="getBlocks" />
+    </Match>
+    <Match>
+        <Bug pattern="EI_EXPOSE_REP" />
+        <Class name="ru.koval.tetris.Tetris" />
+        <Method name="getSavedGames" />
     </Match>
 </FindBugsFilter>

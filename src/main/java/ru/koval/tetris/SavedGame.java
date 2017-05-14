@@ -1,14 +1,7 @@
 package ru.koval.tetris;
 
 import java.awt.Color;
-import java.io.EOFException;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
+import java.io.*;
 import java.util.Date;
 
 public class SavedGame implements Serializable {
@@ -37,7 +30,7 @@ public class SavedGame implements Serializable {
     this.held = held;
     this.level = level;
     this.linesToGo = linesToGo;
-    this.date = date;
+    this.date = new Date(date.getTime());
   }
 
   public Color[][] getBlocks() {
@@ -77,7 +70,7 @@ public class SavedGame implements Serializable {
   }
 
   public Date getDate() {
-    return date;
+    return new Date(date.getTime());
   }
 
   //If this saved game is selected, it turns yellow
@@ -105,10 +98,10 @@ public class SavedGame implements Serializable {
 
   //Writes the array of saved games to a .dat file
   public static void saveGames(SavedGame[] savedGames) {
-    try {
-      ObjectOutputStream o = new ObjectOutputStream(new FileOutputStream("SavedGames.dat"));
-      o.writeObject(savedGames);
-      o.close();
+    try (OutputStream fileOutputStream = new FileOutputStream("SavedGames.dat")) {
+      try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream)) {
+        objectOutputStream.writeObject(savedGames);
+      }
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -117,9 +110,10 @@ public class SavedGame implements Serializable {
   //Reads the saved games from the .dat file
   public static SavedGame[] readGames() {
     SavedGame[] games = new SavedGame[0];
-    try {
-      ObjectInputStream o = new ObjectInputStream(new FileInputStream("SavedGames.dat"));
-      games = (SavedGame[]) o.readObject();
+    try (InputStream fileInputStream = new FileInputStream("SavedGames.dat")) {
+      try (ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream)) {
+        games = (SavedGame[]) objectInputStream.readObject();
+      }
     } catch (FileNotFoundException | EOFException ignored) {
     } catch (IOException | ClassNotFoundException e) {
       e.printStackTrace();
