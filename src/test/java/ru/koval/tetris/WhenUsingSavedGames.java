@@ -31,13 +31,12 @@ public class WhenUsingSavedGames {
     Piece[] nextPieces = new Piece[1];
     int points = 4;
     Piece hold = new Piece(1, new Tetris(new JFrame()));
-    boolean held = true;
     int level = 5;
     int linesToGo = 6;
     Date date = new Date();
 
     SavedGame[] savedGames = new SavedGame[1];
-    savedGames[0] = new SavedGame(name, currentPiece, blocks, nextPieces, points, hold, held, level, linesToGo, date);
+    savedGames[0] = new SavedGame(name, currentPiece, blocks, nextPieces, points, hold, true, level, linesToGo, date);
     SavedGame.saveGames(savedGames);
     SavedGame[] actualSavedGames = SavedGame.readGames();
 
